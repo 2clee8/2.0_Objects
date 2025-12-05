@@ -44,7 +44,7 @@ public class Astronaut {
         }
 
         //bounce off right wall
-        if(xpos > 945){
+        if(xpos > 1000-width){
             dx = -dx;
         }
 
@@ -54,7 +54,7 @@ public class Astronaut {
         }
 
         //bounce off bottom wall
-        if (ypos > 650){
+        if (ypos > 700-height){
             dy = -dy;
         }
 
