@@ -102,7 +102,7 @@ public class BasicGameApp implements Runnable {
         asteroid1.height = 100;
         asteroid1.width = 100;
 
-        asteroid2 = new Asteroid(300,randy);
+        asteroid2 = new Asteroid(randx,300);
 //        asteroid2.dx = 3;
 //        asteroid2.dy = -2;
         asteroid2.height = 100;
@@ -137,11 +137,21 @@ public class BasicGameApp implements Runnable {
         astro2.move();
         asteroid1.move();
         asteroid2.move();
-
+    crashing();
 	}
-	
+
+    public void crashing(){
+        //if astros crash into each other
+        if(astro.hitBox.intersects(astro2.hitBox)){
+            System.out.println("Crash!");
+            //astro.dx = -astro.dx;
+            // astro2.dx = -astro2.dx;
+            // astro.dy = -astro.dy;
+            // astro2.dy = -astro2.dy;
+        }
+    }
    //Pauses or sleeps the computer for the amount specified in milliseconds
-   public void pause(int time ){
+   public void pause(int time){
    		//sleep
 			try {
 				Thread.sleep(time);
@@ -189,9 +199,14 @@ public class BasicGameApp implements Runnable {
 
       //draw the image of the astronaut
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
-        g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+
+        if(astro2.isAlive == true){
+            g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+        }
         g.drawImage(asteroidPic, asteroid1.xpos, asteroid1.ypos, asteroid1.width, asteroid1.height, null);
         g.drawImage(asteroidPic, asteroid2.xpos, asteroid2.ypos, asteroid2.width, asteroid2.height, null);
+        g.drawRect(astro.hitBox.x,astro.hitBox.y,astro.hitBox.width,astro.hitBox.height);
+        g.drawRect(astro2.hitBox.x,astro2.hitBox.y,astro2.hitBox.width,astro2.hitBox.height);
 
 
         g.dispose();
