@@ -30,7 +30,11 @@ public class Asteroid {
             height = 160;
             isAlive = true;
 
+
+
         } // constructor
+
+
 
         //The move method.  Everytime this is run (or "called") the hero's x position and y position change by dx and dy
         public void move() {

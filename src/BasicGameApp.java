@@ -137,10 +137,10 @@ public class BasicGameApp implements Runnable {
         astro2.move();
         asteroid1.move();
         asteroid2.move();
-    crashing();
+   Crashing();
 	}
 
-    public void crashing(){
+    public void Crashing(){
         //if astros crash into each other
         if(astro.hitBox.intersects(astro2.hitBox)){
             System.out.println("Crash!");
